@@ -10,9 +10,9 @@ $base-font-size: 16px;
 $text-color: #111111;
 $grey-color: #828282;
 
-/* Use color.adjust() instead of lighten() */
-$grey-color-light: color.adjust($grey-color, $lightness: 40%);
-$grey-color-dark: color.adjust($grey-color, $lightness: -25%);
+
+$grey-color-light: #e8e8e8;
+$grey-color-dark: #424242;
 
 @import "minima";
 
