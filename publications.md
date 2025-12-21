@@ -1,10 +1,10 @@
 ---
 layout: page
 title: Publications
-permalink: _publications
+permalink: publications
 ---
 
-# Publications
+<!-- # Publications -->
 
 A complete list of my research publications, papers, and technical articles.
 

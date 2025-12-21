@@ -112,6 +112,9 @@ Resources to help you build faster:
 
 ---
 
+## 🏗️ Under Construction
+
+
 <!-- ## 📝 Cheat Sheets
 
 Quick reference guides I've created:
@@ -123,7 +126,7 @@ Quick reference guides I've created:
 
 --- -->
 
-## 💬 Office Hours & Mentoring
+<!-- ## 💬 Office Hours & Mentoring
 
 I occasionally hold virtual office hours to help students and aspiring roboticists.
 
@@ -134,7 +137,7 @@ I occasionally hold virtual office hours to help students and aspiring roboticis
 - Research direction
 - Ethical discussions
 
-[Schedule a session](/contact) | [See availability](#)
+[Schedule a session](/contact) | [See availability](#) -->
 
 ---
 
@@ -165,9 +168,9 @@ I occasionally send out emails with:
 
 --- -->
 
-## 🤝 Request a Topic
+<!-- ## 🤝 Request a Topic
 
-Is there something specific you'd like to learn? [Suggest a tutorial topic](/contact) and I'll consider creating content about it!
+Is there something specific you'd like to learn? [Suggest a tutorial topic](/contact) and I'll consider creating content about it! -->
 
 <!-- ---
 
