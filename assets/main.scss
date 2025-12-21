@@ -1,0 +1,436 @@
+---
+---
+
+/* === Override Minima Theme Variables === */
+@use "sass:color";
+
+$content-width: 900px;
+$base-font-size: 16px;
+
+$text-color: #111111;
+$grey-color: #828282;
+
+/* Use color.adjust() instead of lighten() */
+$grey-color-light: color.adjust($grey-color, $lightness: 40%);
+$grey-color-dark: color.adjust($grey-color, $lightness: -25%);
+
+@import "minima";
+
+//  Remove rss subscribe
+.rss-subscribe,
+.social-media-list a[href*="feed.xml"] {
+  display: none !important;
+}
+
+
+/* === Remove username text from social links === */
+.social-media-list .username {
+  display: none !important;
+}
+
+/* === Robot Logo in Header === */
+
+.site-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;  /* Space between logo and name */
+}
+
+.site-title::before {
+  content: "";
+  display: inline-block;
+  width: 40px;   /* Adjust size as needed */
+  height: 45px;
+  background-image: url('/assets/images/robotic-woman-manufacturing_cropped.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;  /* Prevent logo from shrinking */
+}
+
+/* === Colored Social Icons === */
+
+/* Scale the entire link (icon + wrapper) */
+.site-footer .social-media-list a {
+  display: inline-block;
+  transform: scale(1.6);  /* Makes icons 70% larger */
+  margin: 0 18px;  /* Add margin since we're scaling */
+}
+
+.site-footer .social-media-list a:hover {
+  transform: scale(1.65);  /* Even larger on hover */
+}
+
+.site-footer .social-media-list li {
+  margin-right: 0;  /* Remove margin since we added it to the link */
+}
+
+
+.social-media-list a[href*="github.com"] .svg-icon { fill: #181717; }
+.social-media-list a[href*="github.com"]:hover .svg-icon { fill: #4078c0; }
+
+.social-media-list a[href*="linkedin.com"] .svg-icon { fill: #0077b5; }
+.social-media-list a[href*="linkedin.com"]:hover .svg-icon { fill: #005582; }
+
+.social-media-list a[href*="youtube.com"] .svg-icon { fill: #FF0000; }
+.social-media-list a[href*="youtube.com"]:hover .svg-icon { fill: #cc0000; }
+
+.social-media-list a[href*="twitter.com"] .svg-icon { fill: #1DA1F2; }
+.social-media-list a[href*="twitter.com"]:hover .svg-icon { fill: #0d8bd9; }
+
+.social-media-list a[href^="mailto:"] .svg-icon { fill: #ea4335; }
+.social-media-list a[href^="mailto:"]:hover .svg-icon { fill: #c5311e; }
+
+/* === Footer Layout Fixes === */
+
+.site-footer .wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 15px;
+}
+
+/* Center the footer content */
+.footer-col-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 0;
+}
+
+.footer-col {
+  margin: 0;
+  padding: 0;
+}
+
+/* Name column */
+.footer-col-1 {
+  width: auto;
+  margin-right: 30px;
+}
+
+/* Social icons column */
+.footer-col-2 {
+  width: auto;
+  margin-right: 30px;  /* ← ADJUST THIS NUMBER for gap between icons and description */
+}
+
+/* Description column */
+.footer-col-3 {
+  font-size: 18px;
+  line-height: 1.5;
+  width: auto;
+  max-width: 500px;
+  font-weight: 500;  /* Make it slightly bolder */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);  /* Stronger shadow */
+}
+
+.social-media-list {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.social-media-list li {
+  display: inline-block;
+  margin-right: 12px;
+}
+
+/* Hide footer heading */
+.site-footer .footer-heading {
+  display: none;
+}
+
+
+
+/* === VIDEO FOOTER === */
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.footer-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.footer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 50, 0.3);  /* Ocean blue tint */
+  z-index: 1;
+}
+
+.site-footer .wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.site-footer p,
+.site-footer a {
+  color: white !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+
+/* Video play indicator */
+.video-play-indicator {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  z-index: 3;
+  pointer-events: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+/* Optional: fade out indicator after hover */
+.site-footer:hover .video-play-indicator {
+  opacity: 0.5;
+  transition: opacity 0.3s ease 2s;  /* Fade after 2 seconds */
+}
+
+
+
+/* === HERO SECTION === */
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0px 0 30px 0;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 3.5em;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.3em;
+  color: #10103b;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Hero buttons */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1em;
+}
+
+.hero-button.primary {
+  background-color: #0366d6;
+  color: white;
+}
+
+.hero-button.primary:hover {
+  background-color: #0256c7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(3, 102, 214, 0.3);
+  text-decoration: none;
+}
+
+.hero-button.secondary {
+  background-color: transparent;
+  color: #0366d6;
+  border: 2px solid #0366d6;
+}
+
+.hero-button.secondary:hover {
+  background-color: #0366d6;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(3, 102, 214, 0.2);
+  text-decoration: none;
+}
+
+.hero-button.tertiary {
+  background-color: transparent;
+  color: #0366d6;
+  border: 2px solid #0366d6;
+}
+
+.hero-button.tertiary:hover {
+  background-color: #0366d6;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(3, 102, 214, 0.2);
+  text-decoration: none;
+}
+
+/* Hero image */
+.hero-image {
+  flex: 0 0 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  max-width: 350px;
+  border-radius: 35%;
+}
+
+
+/* Mobile responsive */
+@media screen and (max-width: 800px) {
+  .hero-section {
+    flex-direction: column-reverse;  /* Image on top, text below */
+    text-align: center;
+    padding: 40px 0;
+    gap: 30px;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5em;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1em;
+  }
+  
+  .hero-image {
+    flex: 0 0 auto;
+    max-width: 300px;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero-content h1 {
+    font-size: 2em;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+  }
+  
+  .hero-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+/* === Work Showcase (3 images) === */
+
+.work-showcase {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 40px 0 50px 0;
+  padding: 0;
+}
+
+.showcase-item {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.showcase-item:hover {
+  // translateY(-8px)
+  transform: scale(1.2);
+}
+
+.showcase-item img {
+  width: 100%;
+  height: 220px;  /* Fixed height for consistency */
+  object-fit: scale-down;  /* Crop to fit : cover*/
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.showcase-item:hover img {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.showcase-label {
+  margin-top: 12px;
+  font-size: 1em;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+/* Mobile: Stack vertically */
+@media screen and (max-width: 800px) {
+  .work-showcase {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin: 30px 0;
+  }
+  
+  .showcase-item img {
+    height: 250px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet: 2 columns */
+@media screen and (min-width: 601px) and (max-width: 800px) {
+  .work-showcase {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .showcase-item:last-child {
+    grid-column: 1 / -1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}

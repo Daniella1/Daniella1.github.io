@@ -1,0 +1,43 @@
+<footer class="site-footer h-card">
+  <!-- Video Background -->
+  <div class="footer-video-wrapper">
+    <video muted loop playsinline class="footer-video" id="footerVideo">
+      <source src="/assets/videos/short_underwater_forest_fish.mp4" type="video/mp4">
+    </video>
+    <div class="footer-overlay"></div>
+    <div class="video-play-indicator">Hover to play</div>
+  </div>
+
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-2">
+        {%- include social.html -%}
+      </div>
+      <div class="footer-col footer-col-3">
+        <p>{{ site.description | escape }}</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Start paused, play on hover, hide text when playing
+    const footerVideo = document.getElementById('footerVideo');
+    const footer = document.querySelector('.site-footer');
+    const playIndicator = document.querySelector('.video-play-indicator');
+    
+    // Start paused
+    footerVideo.pause();
+    
+    footer.addEventListener('mouseenter', function() {
+      footerVideo.play();
+      playIndicator.style.display = 'none';  // Hide text when playing
+    });
+    
+    footer.addEventListener('mouseleave', function() {
+      footerVideo.pause();
+      playIndicator.style.display = 'block';  // Show "Hover to play" when paused
+    });
+  </script>
+</footer>

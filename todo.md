@@ -1,0 +1,4 @@
+- add 3 more illustrations of my work, so it isn't just robotics and simulation, but also some ML, and computer vision stuff, and maybe also teaching stuff
+- make the pictures clickable so they refer to a link on the specific project or more details (if applicable)
+- consider updating the modular robot systems image to be a gif combining different configurations of the robot system
+- consider reducing image size on first page

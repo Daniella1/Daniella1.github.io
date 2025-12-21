@@ -1,0 +1,66 @@
+# Site settings
+title: Daniella Tola
+# Personal website showcasing my work, publications, and ideas.
+description: >-
+  Software & Robotics Engineer | Consultant | Educator
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Social media links
+github_username: Daniella1
+linkedin_url: https://www.linkedin.com/in/DaniellaTola/
+youtube_url: https://youtube.com/@DaniellaTola
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  # - jekyll-feed
+  - jekyll-seo-tag
+
+
+# Navigation
+header_pages:
+  - about.md
+  - cv.md
+  - publications.md
+  #- projects.md
+  - blog.md
+  - teaching.md
+  - contact.md
+
+# Collections for organizing content
+collections:
+  # projects:
+  #   output: true
+  #   permalink: /projects/:name/
+  publications:
+    output: true
+    permalink: /publications/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Daniella Tola"
+  # - scope:
+  #     path: ""
+  #     type: "projects"
+  #   values:
+  #     layout: "project"
+  - scope:
+      path: ""
+      type: "publications"
+    values:
+      layout: "publication"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
