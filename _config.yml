@@ -4,7 +4,7 @@ title: Daniella Tola
 description: >-
   Software & Robotics Engineer | Consultant | Educator
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "daniellatola.au" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Social media links
 github_username: Daniella1
@@ -18,6 +18,8 @@ plugins:
   # - jekyll-feed
   - jekyll-seo-tag
 
+# analytics
+goatcounter: daniella-tola
 
 # Navigation
 header_pages:
