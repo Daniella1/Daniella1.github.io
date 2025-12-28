@@ -482,3 +482,200 @@ $grey-color-dark: #424242;
   border: none;
   border-top: 1px solid #e8e8e8;
 }
+
+
+
+/* === Publication Card Styling === */
+
+.pub-authors {
+  font-style: italic;
+  color: #666;
+  margin: 8px 0;
+  font-size: 0.95em;
+}
+
+.pub-venue {
+  color: #444;
+  margin: 8px 0;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.pub-description {
+  line-height: 1.6;
+  color: #521919;
+  margin: 12px 0 15px 0;
+}
+
+.publication-card h3 {
+  margin: 10px 0 8px 0;
+  font-size: 1.2em;
+  color: #2c3e50;
+}
+
+/* Type badges */
+.pub-type {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75em;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+}
+
+.pub-type.journal {
+  background-color: #9d77f7;
+  color: white;
+}
+
+.pub-type.conference {
+  background-color: #c03cc0;
+  color: white;
+}
+
+.pub-type.workshop {
+  background-color: #5c9ed3;
+  color: white;
+}
+
+.pub-type.chapter {
+  background-color: #20a588;
+  color: white;
+}
+
+// #f391da
+.pub-type.thesis {
+  background-color: #1587b4;
+  color: white;
+}
+
+.pub-type.technical {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Thesis Section */
+.thesis-section {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 2px solid #e8e8e8;
+}
+
+.thesis-section h2 {
+  margin-bottom: 30px;
+}
+
+.thesis-card {
+  /* Thesis cards not affected by filters */
+}
+
+/* Citations Section */
+.citations-section {
+  margin-top: 60px;
+  padding: 40px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.citations-section h2 {
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+.citation-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.stat-box {
+  text-align: center;
+  min-width: 120px;
+}
+
+.stat-number {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #0366d6;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.9em;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 600px) {
+  .citation-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+/* === Publication Filter Buttons - Exact Hero Match (Smaller) === */
+
+.filter-buttons {
+  display: flex;
+  gap: 15px;
+  margin: 30px 0 40px 0;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  display: inline-block;
+  padding: 7px 7px; 
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.0em;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+  
+  /* Secondary button style (outline) */
+  background-color: transparent;
+  color: #0366d6;
+  border: 2px solid #0366d6;
+}
+
+.filter-btn:hover {
+  background-color: #0366d6;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(3, 102, 214, 0.2);
+  text-decoration: none;
+}
+
+/* Active state - solid blue */
+.filter-btn.active {
+  background-color: #0366d6;
+  color: white;
+  border-color: #0366d6;
+}
+
+.filter-btn.active:hover {
+  background-color: #0256c7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(3, 102, 214, 0.3);
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 768px) {
+  .filter-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .filter-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
