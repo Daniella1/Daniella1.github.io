@@ -2,3 +2,11 @@
 - make the pictures clickable so they refer to a link on the specific project or more details (if applicable)
 - consider updating the modular robot systems image to be a gif combining different configurations of the robot system
 - consider reducing image size on first page
+
+
+blog posts:
+- beyond academic AI
+- ethics?
+- considering societal impact of engineering systems
+- interesting books
+- svd?
