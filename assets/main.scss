@@ -36,17 +36,17 @@ $grey-color-dark: #424242;
   gap: 3px;  /* Space between logo and name */
 }
 
-.site-title::before {
-  content: "";
-  display: inline-block;
-  width: 40px;   /* Adjust size as needed */
-  height: 45px;
-  background-image: url('/assets/images/favicon.ico');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  flex-shrink: 0;  /* Prevent logo from shrinking */
-}
+// .site-title::before {
+//   content: "";
+//   display: inline-block;
+//   width: 40px;   /* Adjust size as needed */
+//   height: 45px;
+//   background-image: url('/assets/images/favicon.ico');
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   flex-shrink: 0;  /* Prevent logo from shrinking */
+// }
 
 /* === Colored Social Icons === */
 
@@ -677,5 +677,259 @@ $grey-color-dark: #424242;
   .filter-btn {
     width: 100%;
     text-align: center;
+  }
+}
+
+
+// For comments section in posts
+
+.comments-section {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.comments-section h3 {
+  margin-bottom: 20px;
+}
+
+// For share buttons on posts
+// /* === Share Buttons === */
+// .share-buttons {
+//   margin: 50px 0 40px 0;
+//   padding: 0;
+//   background: none;
+//   border: none;
+// }
+
+// .share-buttons h4 {
+//   margin: 0 0 15px 0;
+//   font-size: 1em;
+//   font-weight: 600;
+//   color: #57606a;
+// }
+
+// .share-links {
+//   display: flex;
+//   gap: 10px;
+//   flex-wrap: wrap;
+// }
+
+// .share-btn {
+//   display: inline-flex;
+//   align-items: center;
+//   gap: 6px;
+//   padding: 8px 16px;
+//   border: 2px solid #d0d7de;
+//   border-radius: 6px;
+//   font-size: 0.85em;
+//   font-weight: 500;
+//   text-decoration: none;
+//   cursor: pointer;
+//   transition: all 0.2s ease;
+//   background-color: white;
+//   color: #24292f;
+// }
+
+// .share-btn:hover {
+//   border-color: #0366d6;
+//   color: #0366d6;
+//   transform: translateY(-2px);
+//   box-shadow: 0 4px 12px rgba(3, 102, 214, 0.15);
+// }
+
+// .share-btn svg {
+//   color: #57606a;
+// }
+
+// .share-btn:hover svg {
+//   color: #0366d6;
+// }
+
+/* === Post Footer === */
+
+.post-footer {
+  margin-top: 60px;
+}
+
+.post-footer-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e8e8e8, transparent);
+  margin: 40px 0;
+}
+
+/* === Share Buttons === */
+
+.share-buttons {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.share-heading {
+  font-size: 1em;
+  font-weight: 600;
+  color: #57606a;
+  margin-bottom: 20px;
+}
+
+.share-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 2px solid #d0d7de;
+  border-radius: 6px;
+  font-size: 0.85em;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: white;
+  color: #24292f;
+}
+
+.share-btn:hover {
+  border-color: #0366d6;
+  color: #0366d6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(3, 102, 214, 0.15);
+}
+
+.share-btn svg {
+  color: #57606a;
+  transition: color 0.2s;
+}
+
+.share-btn:hover svg {
+  color: #0366d6;
+}
+
+.share-btn.copied {
+  border-color: #28a745;
+  color: #28a745;
+}
+
+.share-btn.copied svg {
+  color: #28a745;
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+  .share-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .share-btn {
+    justify-content: center;
+  }
+}
+
+/* === Comments Section === */
+
+.comments-section {
+  margin-top: 40px;
+  padding-top: 40px;
+}
+
+.comments-intro {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.share-btn.linkedin {
+  color: #0077b5;
+  border-color: #0077b5;
+}
+
+.share-btn.linkedin svg {
+  color: #0077b5;
+}
+
+.share-btn.reddit {
+  color: #FF4500;
+  border-color: #FF4500;
+}
+
+.share-btn.reddit svg {
+  color: #FF4500;
+}
+
+
+.share-btn.email {
+  color: #6c757d;
+  border-color: #393e42;
+}
+
+.share-btn.email svg {
+  color: #393e42;
+}
+
+.share-btn.copy {
+  color: #19529c;
+  border-color: #19529c;
+}
+
+.share-btn.copy svg {
+  color: #19529c;
+}
+
+/* Copy button copied state */
+.share-btn.copied {
+  border-color: #28a745 !important;
+  color: #28a745 !important;
+  background-color: #f0fff4;
+}
+
+.share-btn.copied svg {
+  color: #28a745 !important;
+}
+
+/* Prevent copied button from changing on hover during copied state */
+.share-btn.copied:hover {
+  border-color: #28a745 !important;
+  color: #28a745 !important;
+  transform: translateY(-2px);
+}
+
+/* Add underline to Copy Link button on hover to match other buttons */
+.share-btn.copy:hover span {
+  text-decoration: underline;
+}
+
+/* Also add to other buttons for consistency */
+.share-btn:hover span {
+  text-decoration: underline;
+}
+
+
+/* === Site Logo === */
+
+.site-logo {
+  height: 40px;        /* Adjust size */
+  width: auto;
+  margin-right: 12px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.site-title {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Mobile - smaller logo */
+@media screen and (max-width: 600px) {
+  .site-logo {
+    height: 32px;
   }
 }

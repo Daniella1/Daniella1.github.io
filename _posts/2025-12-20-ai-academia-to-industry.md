@@ -84,5 +84,4 @@ These include:
 - Dynamic environment
 
 ---
-
-*Have questions or suggestions? Feel free to [contact me](/contact) or leave a comment below!*
+*Questions or thoughts? [Get in touch](/contact) - I'd love to discuss!*

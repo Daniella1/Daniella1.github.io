@@ -1,0 +1,61 @@
+<div class="comments-wrapper">
+  <button onclick="toggleComments()" class="show-comments-btn" id="comments-toggle">
+    💬 Show Comments (requires GitHub)
+  </button>
+  
+  <div class="comments-section" id="comments-section" style="display: none;">
+    <p class="comments-intro">Discussion happens here! Sign in with GitHub to join the conversation.</p>
+    
+<script src="https://giscus.app/client.js"
+        data-repo="Daniella1/Daniella1.github.io"
+        data-repo-id="R_kgDOIXMBTw"
+        data-category="General"
+        data-category-id="[ENTER CATEGORY ID HERE]"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+  </div>
+</div>
+
+<script>
+function toggleComments() {
+  const section = document.getElementById('comments-section');
+  const button = document.getElementById('comments-toggle');
+  
+  if (section.style.display === 'none') {
+    section.style.display = 'block';
+    button.textContent = '▼ Hide Comments';
+  } else {
+    section.style.display = 'none';
+    button.textContent = '💬 Show Comments (requires GitHub)';
+  }
+}
+</script>
+
+<style>
+.show-comments-btn {
+  padding: 12px 24px;
+  background-color: transparent;
+  border: 2px solid #0366d6;
+  border-radius: 6px;
+  color: #0366d6;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 20px;
+}
+
+.show-comments-btn:hover {
+  background-color: #0366d6;
+  color: white;
+  transform: translateY(-2px);
+}
+</style>
