@@ -693,58 +693,6 @@ $grey-color-dark: #424242;
   margin-bottom: 20px;
 }
 
-// For share buttons on posts
-// /* === Share Buttons === */
-// .share-buttons {
-//   margin: 50px 0 40px 0;
-//   padding: 0;
-//   background: none;
-//   border: none;
-// }
-
-// .share-buttons h4 {
-//   margin: 0 0 15px 0;
-//   font-size: 1em;
-//   font-weight: 600;
-//   color: #57606a;
-// }
-
-// .share-links {
-//   display: flex;
-//   gap: 10px;
-//   flex-wrap: wrap;
-// }
-
-// .share-btn {
-//   display: inline-flex;
-//   align-items: center;
-//   gap: 6px;
-//   padding: 8px 16px;
-//   border: 2px solid #d0d7de;
-//   border-radius: 6px;
-//   font-size: 0.85em;
-//   font-weight: 500;
-//   text-decoration: none;
-//   cursor: pointer;
-//   transition: all 0.2s ease;
-//   background-color: white;
-//   color: #24292f;
-// }
-
-// .share-btn:hover {
-//   border-color: #0366d6;
-//   color: #0366d6;
-//   transform: translateY(-2px);
-//   box-shadow: 0 4px 12px rgba(3, 102, 214, 0.15);
-// }
-
-// .share-btn svg {
-//   color: #57606a;
-// }
-
-// .share-btn:hover svg {
-//   color: #0366d6;
-// }
 
 /* === Post Footer === */
 
@@ -758,7 +706,7 @@ $grey-color-dark: #424242;
   margin: 40px 0;
 }
 
-/* === Share Buttons === */
+/* === Share Buttons on posts === */
 
 .share-buttons {
   text-align: center;
