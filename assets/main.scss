@@ -881,3 +881,420 @@ $grey-color-dark: #424242;
     height: 32px;
   }
 }
+
+/* === How I Work - Hexagonal Layout === */
+
+
+
+// /* Detail content (shows below circles) */
+// #capability-details {
+//   max-width: 800px;
+//   margin: 40px auto 0 auto;
+// }
+
+// .capability-detail-content {
+//   display: none;
+//   padding: 30px;
+//   background: #f8f9fa;
+//   border-left: 4px solid #0366d6;
+//   border-radius: 8px;
+//   margin-bottom: 30px;
+//   animation: slideDown 0.3s ease;
+// }
+
+// .capability-detail-content.show {
+//   display: block;
+// }
+
+// @keyframes slideDown {
+//   from {
+//     opacity: 0;
+//     transform: translateY(-10px);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+// .capability-detail-content h3 {
+//   font-size: 1.5em;
+//   margin: 0 0 20px 0;
+//   color: #24292f;
+// }
+
+// .capability-principle {
+//   margin-bottom: 25px;
+//   padding-bottom: 20px;
+//   border-bottom: 2px solid #e8e8e8;
+// }
+
+// .capability-principle p {
+//   font-size: 1.05em;
+//   font-weight: 500;
+//   line-height: 1.6;
+//   color: #24292f;
+//   font-style: italic;
+// }
+
+// .capability-evidence {
+//   margin-bottom: 25px;
+// }
+
+// .capability-evidence p {
+//   font-weight: 600;
+//   color: #57606a;
+//   margin-bottom: 12px;
+//   font-size: 0.9em;
+//   // text-transform: uppercase;
+//   letter-spacing: 0.5px;
+// }
+
+// .capability-evidence ul {
+//   margin: 12px 0;
+//   padding-left: 20px;
+// }
+
+// .capability-evidence li {
+//   margin-bottom: 12px;
+//   line-height: 1.6;
+//   color: #24292f;
+// }
+
+// .capability-transfer {
+//   padding: 18px;
+//   background-color: #f0f8ff;
+//   border-left: 4px solid #0366d6;
+//   border-radius: 4px;
+// }
+
+// .capability-transfer p {
+//   font-size: 0.95em;
+//   line-height: 1.6;
+//   color: #1e3c72;
+//   margin: 0;
+// }
+
+
+
+/* ========================================= */
+/* === HOW I WORK - CAPABILITIES SECTION === */
+/* ========================================= */
+
+/* Instruction text above circles */
+.capabilities-instruction {
+  text-align: center;
+  color: #57606a;
+  font-size: 0.93em;
+  font-style: italic;
+  margin: 15px 0 -25px 0;  /* Less top margin, more bottom */
+}
+
+/* Hexagonal circle layout */
+.capabilities-hexagon {
+  position: relative;
+  max-width: 400px;
+  margin: -20px auto;  /* Center with auto margins */
+  padding: 20px;
+  display: grid;  /* Change from inline-grid to grid */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 20px;
+  justify-items: center;
+}
+
+/* Offset every other row for hexagonal effect - using margin */
+.capabilities-hexagon .capability-circle:nth-child(4),
+.capabilities-hexagon .capability-circle:nth-child(5),
+.capabilities-hexagon .capability-circle:nth-child(6) {
+  margin-left: -40px;  /* Remove fixed offset */
+}
+
+/* Hexagonal circle layout */
+// .capabilities-hexagon {
+//   position: relative;
+//   max-width: 300px;
+//   max-height: 240px;
+//   margin: -40px 0px;
+//   padding: 40px 0px;
+//   display: inline-grid;
+//   grid-template-columns: repeat(3, 1fr);
+//   gap: 20px 20px;
+//   justify-items: center;
+//   margin-left: 150px;
+// }
+
+/* Offset every other row for hexagonal effect - using margin */
+// .capabilities-hexagon .capability-circle:nth-child(4),
+// .capabilities-hexagon .capability-circle:nth-child(5),
+// .capabilities-hexagon .capability-circle:nth-child(6) {
+//   margin-left: 40px;
+// }
+
+/* Individual circles */
+.capability-circle {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #f6f8fa 0%, #e8eaed 100%);
+  border: 2px solid #d0d7de;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 12px;
+  text-align: center;
+}
+
+.capability-circle:hover {
+  transform: scale(1.15);
+  border-color: #0366d6;
+  box-shadow: 0 6px 16px rgba(3, 102, 214, 0.25);
+  background: linear-gradient(135deg, #e8f4f8 0%, #d6e8f5 100%);
+  z-index: 10;
+}
+
+.capability-circle.active {
+  border-color: #0366d6;
+  border-width: 3px;
+  background: linear-gradient(135deg, #e8f4f8 0%, #d6e8f5 100%);
+}
+
+.circle-icon {
+  font-size: 1.7em;
+  margin-bottom: 6px;
+  transform: translateY(-8px);
+  opacity: 0.65;
+}
+
+.circle-label {
+  font-size: 0.7em;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #24292f;
+  transform: translateY(-10px);
+}
+
+/* Detail content container (below circles) */
+#capability-details {
+  max-width: 800px;
+  margin: 40px auto 0 auto;
+}
+
+.capability-detail-content {
+  display: none;
+  padding: 30px;
+  background: #f8f9fa;
+  border-left: 4px solid #0366d6;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  animation: slideDown 0.3s ease;
+}
+
+.capability-detail-content.show {
+  display: block;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.capability-detail-content h3 {
+  font-size: 1.5em;
+  margin: 0 0 20px 0;
+  color: #24292f;
+}
+
+/* Principle section */
+.capability-principle {
+  margin-bottom: 25px;
+  padding-bottom: 0px;
+  border-bottom: 2px solid #e8e8e8;
+}
+
+.capability-principle p {
+  font-size: 1.05em;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #24292f;
+  font-style: italic;
+}
+
+/* Evidence section */
+.capability-evidence {
+  margin-bottom: 25px;
+}
+
+/* "Examples:" header only - styled */
+.capability-evidence > p:first-child {
+  font-weight: 600;
+  color: #57606a;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* === Expandable Case Studies === */
+
+.case-studies-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.case-study {
+  margin-bottom: 12px;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.case-study:hover {
+  border-color: #d0d7de;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.case-study-summary {
+  padding: 5px 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: white;
+  transition: background 0.2s ease;
+}
+
+.case-study-summary:hover {
+  background: #f8f9fa;
+}
+
+.case-study-summary strong {
+  color: #0e2353;
+  font-weight: 600;
+}
+
+.case-toggle {
+  color: #57606a;
+  font-size: 0.9em;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 0.2s ease;
+}
+
+.case-study.expanded .case-toggle {
+  transform: rotate(90deg);
+}
+
+/* Expanded detail content */
+.case-study-detail {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 18px;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+  border-top: 1px solid transparent;
+}
+
+.case-study.expanded .case-study-detail {
+  max-height: 800px;
+  padding: 20px 18px;
+  border-top-color: #e8e8e8;
+}
+
+/* Text inside expansions - clean and readable */
+.case-study-detail p {
+  margin: 15px 0;
+  line-height: 1.7;
+  color: #24292f;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+.case-study-detail p:first-child {
+  margin-top: 0;
+}
+
+.case-study-detail p:last-child {
+  margin-bottom: 0;
+}
+
+/* Case labels - subtle inline emphasis */
+.case-label {
+  color: #000000;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+/* Transfer/Takeaway section */
+.capability-transfer {
+  padding: 18px;
+  background-color: #f0f8ff;
+  border-left: 4px solid #0366d6;
+  border-radius: 4px;
+}
+
+.capability-transfer p {
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: #1e3c72;
+  margin: 0;
+}
+
+/* === MOBILE RESPONSIVE === */
+
+@media screen and (max-width: 768px) {
+  .capabilities-hexagon {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .capabilities-hexagon .capability-circle:nth-child(4),
+  .capabilities-hexagon .capability-circle:nth-child(5),
+  .capabilities-hexagon .capability-circle:nth-child(6) {
+    margin-left: 0;
+  }
+  
+  .capability-circle {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .circle-icon {
+    font-size: 1.8em;
+  }
+  
+  .circle-label {
+    font-size: 0.65em;
+  }
+  
+  .capability-detail-content {
+    padding: 20px;
+  }
+  
+  .case-study-summary {
+    padding: 12px 15px;
+    font-size: 0.95em;
+  }
+  
+  .case-study.expanded .case-study-detail {
+    padding: 15px;
+  }
+  
+  .case-study-detail p {
+    font-size: 0.9em;
+  }
+}
+
+/* ========================================= */
+/* === END CAPABILITIES SECTION === */
+/* ========================================= */
