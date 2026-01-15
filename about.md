@@ -203,7 +203,7 @@ Beyond technical skills, these are the capabilities that define how I approach c
       </ul>
     </div>
     <div class="capability-transfer">
-      <p><em>This leadership style raises team capability rather than just directing work, creating lasting impact beyond individual projects..</em></p>
+      <p><em>This leadership style raises team capability rather than just directing work, creating lasting impact beyond individual projects.</em></p>
     </div>
   </div>
 
