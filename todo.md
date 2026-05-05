@@ -10,3 +10,11 @@ blog posts:
 - considering societal impact of engineering systems
 - interesting books
 - svd?
+
+
+E.g. front page pics:
+- URDF visualisations can refer to a page with links to my URDF resources, dataset, and survey results
+- Digital shadows can refer to the digital shadows paper and the github repo
+- Robotics system integration can refer to my thesis and the configurator
+
+- create robot tic tac toe simulator

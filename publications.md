@@ -463,15 +463,15 @@ Demonstrated through a case study on an autonomous combine harvester.</p>
 
 <div class="citation-stats">
   <div class="stat-box">
-    <div class="stat-number">360+</div>
+    <div class="stat-number">410+</div>
     <div class="stat-label">Citations</div>
   </div>
   <div class="stat-box">
-    <div class="stat-number">9</div>
+    <div class="stat-number">10</div>
     <div class="stat-label">h-index</div>
   </div>
   <div class="stat-box">
-    <div class="stat-number">9</div>
+    <div class="stat-number">10</div>
   <div class="stat-label">i10-index</div>
   </div>
 </div>

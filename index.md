@@ -6,7 +6,7 @@ title: Welcome!
 
 <div class="hero-section">
   <div class="hero-content">
-    <p class="hero-subtitle">Hi, I'm <b>Daniella</b>, a software & robotics engineer passionate about building intelligent systems and sharing knowledge.</p>
+    <p class="hero-subtitle">Hi, I'm <b>Daniella</b>, a senior software & robotics engineer passionate about building intelligent systems and sharing knowledge.</p>
     <div class="hero-buttons">
       <a href="/about" class="hero-button primary">About Me</a>
       <a href="/cv" class="hero-button secondary">View My CV</a>
