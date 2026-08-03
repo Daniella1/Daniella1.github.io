@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Beyond Academic AI: Machine Learning in Industrial Systems"
-date: 2025-12-20 10:00:00 -0000
+date: 2026-08-02 10:00:00 -0000
 categories: [machine learning, academia, industry]
 tags: [machine learning, research, industry, computer vision]
 author: Daniella Tola

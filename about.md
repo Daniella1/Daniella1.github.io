@@ -8,7 +8,7 @@ permalink: /about/
 
 ![Profile Photo](/assets/images/daniellatola_cropped.jpg){: style="float: right; margin-left: 20px; margin-top: -150px; max-width: 250px; border-radius: 10px;"}
 
-I'm a senior software and robotics engineer with a passion for building intelligent systems that interact with the physical world. My work spans robotics systems integration, machine learning, simulation, 3D visualisation, computer vision, safety, and manufacturing.
+I'm a software and robotics engineer, currently working as a Senior Data Scientist, with a passion for building intelligent systems that interact with the physical world. My work spans robotics systems integration, machine learning, simulation, 3D visualisation, computer vision, safety, and manufacturing.
 
 My strength lies in systems thinking and working across disciplines to build innovative solutions.
 I work methodically, breaking down complex challenges into manageable pieces while keeping the end goal in sight.
