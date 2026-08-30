@@ -18,3 +18,6 @@ E.g. front page pics:
 - Robotics system integration can refer to my thesis and the configurator
 
 - create robot tic tac toe simulator
+Todo fixes Mobile version:
+- Contact form, the user input areas are overflowing on the page
+- About seciton. "About me" title is overflowing into the picture.
