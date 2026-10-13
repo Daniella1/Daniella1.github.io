@@ -29,6 +29,7 @@ header_pages:
   #- projects.md
   - blog.md
   - teaching.md
+  - tools.md
   - contact.md
 
 # Collections for organizing content

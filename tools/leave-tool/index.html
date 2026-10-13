@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leave balance calculator</title>
+<meta name="description" content="Work out how much annual and sick leave you will have on any date, from your payslip. Runs entirely in your browser.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; connect-src 'self' blob: data:; worker-src 'self' blob:; font-src 'self' data: blob:; base-uri 'none'; form-action 'none'">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<noscript>This page needs JavaScript.</noscript>
+    <div id="empty" class="empty">
+      <h2>Find out how much leave you will have on any date</h2>
+      <ol>
+        <li><b>About your payslip.</b> Check the leave line names, your working day and how often you are paid (step 1).</li>
+        <li><b>Add your latest payslip.</b> Drop in a PDF or a screenshot of the leave lines, or type the figures in. Then check the numbers it reads (step 2).</li>
+        <li><b>Pick dates to check.</b> Today is checked for you. Add other days, past or future (step 3, under the chart once your payslip is saved).</li>
+        <li><b>Add leave you have booked.</b> Optional. Days off you have planned come off the balance (step 4, under the chart).</li>
+      </ol>
+    </div>
+    <aside class="notice" aria-label="Privacy and accuracy">
+      <p><b>Private by design.</b> This page runs entirely in your browser. Payslip files and figures are never uploaded or sent anywhere, and are not seen by the site owner. Figures you save stay in this browser only.</p>
+      <p><b>For your safety, please leave personal details out.</b> Only the leave lines are needed, so crop screenshots to those lines and leave out your name, employee number, address, bank and tax details.</p>
+      <p><b>An estimate, not advice.</b> Results come from the figures you enter and assumptions listed below the chart. Check your balance with your employer or payroll.</p>
+      <p id="fileNote" class="filenote" hidden><b>This page was opened as a file.</b> Browsers then block the PDF and screenshot readers, so you can only type figures in. To read files, run <code>python -m http.server</code> in this folder and open <code>http://localhost:8000/</code>, or put the folder on a website.</p>
+    </aside>
+<div class="app">
+  <aside class="rail" aria-label="Set up">
+    <section class="step">
+      <details id="setup">
+        <summary><span class="num" aria-hidden="true">1</span><span class="sh"><b>About your payslip</b><span id="setupSum" class="sum"></span></span></summary>
+        <form id="setupForm" onsubmit="return false">
+          <p class="hint">Tell the tool how your payslip is laid out. Check these once; they are remembered in this browser.</p>
+          <div class="field"><label for="sAnnual">Annual leave line name</label>
+            <input id="sAnnual" type="text" maxlength="80" autocomplete="off" placeholder="e.g. Annual Leave">
+            <div class="small">Copy it from your payslip exactly as written, for example "Annual Leave" or "Holiday Leave Accrual".</div></div>
+          <div class="field"><label for="sSick">Sick leave line name</label>
+            <input id="sSick" type="text" maxlength="80" autocomplete="off" placeholder="e.g. Personal/Carer's Leave">
+            <div class="small">Leave empty if your payslip has no sick leave line.</div></div>
+          <div class="field"><label for="sHours">Hours in your working day</label>
+            <input id="sHours" type="number" min="0.25" max="24" step="any">
+            <div class="small">Used to turn hours into days, for example 7.6 or 8.</div></div>
+          <div class="field"><label for="sFreq">How often are you paid?</label>
+            <select id="sFreq"><option value="weekly">Every week</option><option value="fortnightly">Every 2 weeks</option><option value="monthly">Every month</option></select></div>
+          <div class="field"><label for="sOrder">How are dates written on your payslip?</label>
+            <select id="sOrder"><option value="dmy">Day first (dd/mm/yyyy)</option><option value="mdy">Month first (mm/dd/yyyy)</option></select></div>
+          <p id="setupError" class="error" role="alert" hidden></p>
+          <button id="setupDone" type="button">Done</button>
+        </form>
+      </details>
+    </section>
+    <section class="step">
+      <details id="slipBox" open>
+        <summary><span class="num" aria-hidden="true">2</span><span class="sh"><b>Add your latest payslip</b><span id="slipSum" class="sum"></span></span></summary>
+      <div id="uploadArea">
+      <p class="hint">Crop screenshots to just the leave lines, so your name and pay details are not included. Adding the payslip before it as well is optional, but lets the tool double check the figures.</p>
+      <div id="drop" class="drop" tabindex="0" role="button" aria-label="Add a payslip PDF or screenshot">
+        <span id="dropText">Drop a PDF or screenshot here, paste with Ctrl+V, or <u>choose a file</u></span>
+      </div>
+      <input id="file" type="file" accept="application/pdf,image/*" multiple hidden>
+      <p class="or">or</p>
+      <button id="pasteBtn" type="button" class="secondary wide" hidden>Paste image from clipboard</button>
+      <div id="pasteBox" class="pastebox" contenteditable="true" role="textbox" aria-label="Paste area for a screenshot" hidden>Press and hold here, then tap Paste</div>
+      <button id="manual" type="button" class="secondary wide">Enter payslip figures manually</button>
+      <p id="ocrHint" class="small" hidden></p>
+      </div>
+      </details>
+      <p id="uploadError" class="error" role="alert" hidden></p>
+      <div id="drafts"></div>
+      <ul id="slips" class="list"></ul>
+      <ul id="notes" class="notes"></ul>
+    </section>
+  </aside>
+
+  <main>
+    <div class="toprow">
+      <header>
+        <h1>Leave balance</h1>
+        <p id="basis" class="basis"></p>
+      </header>
+      <div class="controls">
+        <span class="small" aria-hidden="true">Show balances in</span>
+        <fieldset class="seg"><legend class="sr">Show balances in hours or days</legend>
+          <label><input type="radio" name="unit" value="hours" checked><span>Hours</span></label>
+          <label><input type="radio" name="unit" value="days"><span>Days</span></label>
+        </fieldset>
+      </div>
+    </div>
+    <p id="toast" class="error" role="alert" hidden></p>
+    <div id="results" class="results"></div>
+    <figure id="chartWrap" hidden>
+      <svg id="chart" role="img"></svg>
+      <div id="tip" class="tip" hidden></div>
+      <figcaption>Projected balance each day. It steps up at the end of each pay period and down on booked leave. Dashed lines mark the dates you are checking; shaded bands are booked leave.</figcaption>
+    </figure>
+    <div id="foot" class="foot"></div>
+    <div id="more" class="more" hidden>
+    <section class="step" aria-labelledby="h-dates">
+      <h2 id="h-dates"><span class="num" aria-hidden="true">3</span>Pick dates to check</h2>
+      <p class="hint">Today is checked for you. Remove it or add other days, past or future. Add as many as you like.</p>
+      <form id="dateForm" class="row">
+        <div style="flex:1"><label for="newDate" class="sr">Date to check</label><input id="newDate" type="date" required></div>
+        <button type="submit">Add date</button>
+      </form>
+      <ul id="dates" class="chips"></ul>
+    </section>
+    <section class="step">
+      <details id="leaveBox" open>
+        <summary><span class="num" aria-hidden="true">4</span><span class="sh"><b>Leave you have booked</b><span id="leaveSum" class="sum">Optional</span></span></summary>
+        <p class="hint">Add days off you have planned but that are not on a payslip yet, so they come off the balance.</p>
+        <div class="field"><label for="sRegion">Skip public holidays in</label>
+          <select id="sRegion">
+            <option value="VIC">Victoria</option><option value="NSW">New South Wales</option><option value="QLD">Queensland</option>
+            <option value="SA">South Australia</option><option value="WA">Western Australia</option><option value="TAS">Tasmania</option>
+            <option value="ACT">Australian Capital Territory</option><option value="NT">Northern Territory</option>
+            <option value="none">Do not skip any</option></select>
+          <div id="regionHint" class="small"></div></div>
+        <form id="leaveForm">
+          <div class="field"><label for="lType">Type of leave</label><select id="lType"></select></div>
+          <div class="two">
+            <div class="field"><label for="lFrom">First day off</label><input id="lFrom" type="date" required></div>
+            <div class="field"><label for="lTo">Last day off</label><input id="lTo" type="date"></div>
+          </div>
+          <p class="small" style="margin-top:-6px">Fills in the same day as the first day. Change it only for leave over several days.</p>
+          <div class="field"><label for="lHours">Hours off per day</label><input id="lHours" type="number" min="0.25" max="24" step="any" value="8"></div>
+          <p id="leavePreview" class="hint">Weekends and public holidays are not counted.</p>
+          <p id="leaveError" class="error" role="alert" hidden></p>
+          <div class="actions" style="margin-top:0"><button type="submit" id="lSubmit">Add booked leave</button>
+            <button type="button" id="lCancel" class="secondary" hidden>Cancel</button></div>
+        </form>
+        <ul id="bookings" class="list"></ul>
+      </details>
+    </section>
+    </div>
+    <div class="cleararea">
+    
+      <button id="clear" type="button" class="secondary wide">Clear all my data</button>
+      <p class="small">Removes saved payslips, dates, booked leave and settings from this browser so you can start fresh. Worth doing on a shared computer.</p>
+    
+    </div>
+  </main>
+</div>
+
+<script src="holidays-data.js"></script>
+<script src="engine.js"></script>
+<script src="reader.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

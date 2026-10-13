@@ -10,7 +10,7 @@ title: Welcome!
     <div class="hero-buttons">
       <a href="/about" class="hero-button primary">About Me</a>
       <a href="/cv" class="hero-button secondary">View My CV</a>
-      <a href="/blog" class="hero-button tertiary">Check Out My Blog Posts</a>
+      <a href="/tools" class="hero-button tertiary">Explore My Tools</a>
     </div>
   </div>
   <div class="hero-image">
